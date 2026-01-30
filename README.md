@@ -1,0 +1,2 @@
+# EasyQQBot
+placeholder
