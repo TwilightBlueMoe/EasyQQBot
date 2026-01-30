@@ -39,20 +39,6 @@ def welcome():
     return send_file("welcome.jpg")
 
 
-@app.route("/morfonica/<path:filename>")
-def serve_morfonica_file(filename):
-    """提供Morfonica音乐文件服务"""
-    try:
-        file_path = os.path.join(morfonica_path, filename)
-        if os.path.exists(file_path):
-            return send_file(file_path)
-        else:
-            return {"error": "File not found"}, 404
-    except Exception as e:
-        logger.error(f"Error serving Morfonica file: {e}")
-        return {"error": "Internal server error"}, 500
-
-
 # 创建并启动调度器
 scheduler = setup_scheduler()
 scheduler.start()
